@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {%block extrahead%}{%endblock%}
+</head>
+<body>
+    {%block content%}
+    <div>
+        <h3><a href="signup">회원가입</a></h3>
+        <h3><a href="login">로그인</a></h3>
+        <h3><a href="logout">로그아웃</a></h3>
+        {% if user.is_authenticated %}
+            <p>{{user}}님, 환영합니다!</p>
+        {% else %}
+            <p>로그인해주세요.</p>
+        {% endif %}
+    </div>
+    {%endblock%}
+</body>
+</html>
+
+
+
+
+
+
+{% comment %} {%extends 'base.html'%}
+{%load bootstrap4%}
+{%block content%}
+<div>
+    <h3><a href="signup">회원가입</a></h3>
+    <h3><a href="login">로그인</a></h3>
+    <h3><a href="logout">로그아웃</a></h3>
+    {% if user.is_authenticated %}
+        <p>{{user}}님, 환영합니다!</p>
+    {% else %}
+        <p>로그인해주세요.</p>
+    {% endif %}
+</div>
+{%endblock%} {% endcomment %}

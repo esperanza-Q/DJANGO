@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>제목 : {{ post.title }}</h1>
+    <p>내용 : {{ post.content }}</p>
+    {% for image in images %}
+        <img src = "{{image.image.url}}" alt="Image">
+    {% endfor %}
+
+    <button><a href="{% url 'list' %}">목록</a></button>
+</body>
+</html>
